@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../parts/bootstrapcss.ejs') -%>
+        <%- include('../parts/datatablecss.ejs') -%>
+            <link rel="stylesheet" href="/public//css/styles.css" />
+            <title>
+                <%= title %>
+            </title>
+</head>
+
+<body>
+    <%- include('../parts/navbar.ejs') -%>
+        <div class="container" style="margin-top: 10dvh;">
+            <table id="table_users" class="table table-striped" style="width:100%;">
+            <thead class="bg-dark" style="color: white;">
+                <tr>
+                    <th>Nome</th>
+                    <th>Matricula</th>
+                    <th>Email</th>
+                    <th>Type</th>
+                    <th>Data</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    
+        <%- include('../parts/bootstrapjss.ejs') -%>
+            <%- include('../parts/datatable.ejs') -%>
+                <script src="/public/javascript/system/users.js"></script>
+                <script src="/public/javascript/system/updateEnable.js"></script>
+                <script src="/public/javascript/system/updateDisable.js"></script>
+</body>
+
+</html>
