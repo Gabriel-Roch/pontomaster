@@ -1,4 +1,6 @@
 const db = require('../database/connection')
+const { hash } = require('bcrypt')
+const { randomInt } = require('crypto')
 
 const verifyPassword = (data) => {
     return new Promise((resolve, reject) => {
@@ -95,33 +97,36 @@ const verifyMatricula = (data)=>{
 const createAccountDatabase = (data) => {
     return new Promise((resolve, reject) => {
         try {
+            hash(data.senha, randomInt(10, 16)).then(response=>response)
+            .then(senhacrypto=>{
+               
             const {
                 email,
                 nome,
-                senha,
                 matricula
             } = data
-        
-            let query = "insert into control_point.control_users (email, `name`, `password`, matricula) values (?,?,?,?)";
 
-                db.query(query, [
-                    email,
-                    nome,
-                    senha,
-                    matricula
-                ], (err) => {
-                    if (!err) {
-                        resolve({
-                            success: true,
-                            msg: "CONTA CRIADA"
-                        })
-                    } else {
-                        reject({
-                            success: false,
-                            msg: "createAccountDatabase:" + err + "\nERRO NO SISTEMA, CONTATE O ADMINISTRADOR"
-                        })
-                    }
-                })
+            let query = "insert into control_point.control_users (email, `name`, `password`, matricula) values (?,?,?,?)";
+            
+            db.query(query, [
+                email,
+                nome,
+                senhacrypto,
+                matricula
+            ], (err) => {
+                if (!err) {
+                    resolve({
+                        success: true,
+                        msg: "CONTA CRIADA"
+                    })
+                } else {
+                    reject({
+                        success: false,
+                        msg: "createAccountDatabase:" + err + "\nERRO NO SISTEMA, CONTATE O ADMINISTRADOR"
+                    })
+                }
+            })
+        })
         } catch (err) {
             reject({
                 success: false,

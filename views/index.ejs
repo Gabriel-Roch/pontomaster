@@ -5,15 +5,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/sticknote.css">
+    <link href='http://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
     <%- include('parts/bootstrapcss.ejs') -%>
-        <title><%= title %></title>
+        <title>
+            <%= title %>
+        </title>
 </head>
 
 <body>
     <%- include('parts/navbar.ejs') -%>
 
-    
-    <%- include('parts/bootstrapjss.ejs') -%>
+        <div class="row" style="margin-top: 10dvh;">
+            <div class="d-flex justify-content-end col-6">
+                <div class="snote">
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-info btn-lg">Registrar Entrada</button>
+                    </div>
+                    <ul>
+                        <li>
+                            <section>
+                                <h2>Entrada</h2>
+                                <hr/>
+                                <div class="d-flex justify-content-center">
+                                    <p>Data: 14/05/2023</p>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <p>Hora: 16:48</p>
+                                </div>
+                            </section>
+                        </li>
+                </div>
+            </div>
+            <div class="d-flex justify-content-start col-6">
+                <div class="snote">
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-success btn-lg">Registrar Saida</button>
+                    </div>
+                    <ul>
+                        <li>
+                            <section>
+                                <h2>Saida</h2>
+                                <hr/>
+                                <div class="d-flex justify-content-center">
+                                    <p>Data: 14/05/2023</p>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <p>Hora: 16:48</p>
+                                </div>
+                            </section>
+                        </li>
+                </div>
+            </div>
+        </div>
+
+        <%- include('parts/bootstrapjss.ejs') -%>
+        <script src="../public/javascript/index.js"></script>
 </body>
 
 </html>
