@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `control_point` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `control_point`;
 -- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: localhost    Database: control_point
@@ -24,14 +26,15 @@ DROP TABLE IF EXISTS `control_users`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `control_users` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(45) DEFAULT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `password` varchar(45) DEFAULT NULL,
+  `email` varchar(120) NOT NULL,
+  `name` varchar(120) DEFAULT NULL,
+  `password` varchar(120) DEFAULT NULL,
   `active` varchar(45) DEFAULT 'disabled',
   `lv_access` varchar(45) DEFAULT '1',
+  `matricula` varchar(45) NOT NULL,
   `dt_insert` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id`,`email`,`matricula`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +43,7 @@ CREATE TABLE `control_users` (
 
 LOCK TABLES `control_users` WRITE;
 /*!40000 ALTER TABLE `control_users` DISABLE KEYS */;
-INSERT INTO `control_users` VALUES (1,'admin@gmail.com','Gabriel Rocha Pinheiro','123','enabled','1','2023-05-09 02:21:32'),(2,'gustavo@gmail.com','Gustavo','123','enabled','1','2023-05-09 04:33:09'),(3,'teste@teste','teste','teste','enabled','1','2023-05-09 04:57:33'),(4,'teste@teste','teste','teste','enabled','1','2023-05-09 04:57:33'),(5,'teste@teste','teste','teste','enabled','1','2023-05-09 04:57:33'),(6,'teste@teste','teste','teste','enabled','1','2023-05-09 04:57:34'),(7,'teste@teste','teste','teste','enabled','1','2023-05-09 04:57:34'),(8,'teste@teste','teste','teste','enabled','1','2023-05-09 04:57:34'),(9,'teste@teste','teste','teste','enabled','1','2023-05-09 04:57:34'),(10,'teste@teste','teste','teste','enabled','1','2023-05-09 04:57:34'),(11,'teste@teste','teste','teste','enabled','1','2023-05-09 04:57:34'),(12,'teste@teste','teste','teste','enabled','1','2023-05-09 04:57:35'),(13,'teste@teste','teste','teste','enabled','1','2023-05-09 04:57:35'),(14,'teste@teste','teste','teste','enabled','1','2023-05-09 04:57:35'),(15,'teste@teste','teste','teste','enabled','1','2023-05-09 04:57:35'),(16,'teste@teste','teste','teste','enabled','1','2023-05-09 04:57:35'),(17,'teste@teste','teste','teste','enabled','1','2023-05-09 04:57:35'),(18,'teste@teste','teste','teste','enabled','1','2023-05-09 04:57:35'),(19,'teste@teste','teste','teste','enabled','1','2023-05-09 04:57:35'),(20,'teste@teste','teste','teste','enabled','1','2023-05-09 04:57:35'),(21,'teste@teste','teste','teste','enabled','1','2023-05-09 04:57:35'),(22,'TESTE@gmail.com','gabriel ','123','enabled','1','2023-05-09 05:07:07');
+INSERT INTO `control_users` VALUES (1,'admin@gmail.com','administrador','$2b$15$8Jct5B1d01kVRdb9Hsc5FOUyvOfAKNenRwFMhD.OIY755gW4KA0y2','enabled','3','123456789','2023-05-15 04:21:50');
 /*!40000 ALTER TABLE `control_users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-09 20:08:00
+-- Dump completed on 2023-05-15  1:23:21

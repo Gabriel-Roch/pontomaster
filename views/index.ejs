@@ -14,7 +14,7 @@
         </title>
 </head>
 
-<body>
+<body onload="getResultPonto('<%= matricula %>')">
     <%- include('parts/navbar.ejs') -%>
 
         <div class="container">
@@ -32,10 +32,13 @@
                                     <h2>Entrada</h2>
                                     <hr />
                                     <div class="d-flex justify-content-center">
-                                        <p>Data: 14/05/2023</p>
+                                        <p id="nota_data_entrada"></p>
                                     </div>
                                     <div class="d-flex justify-content-center">
-                                        <p>Hora: 16:48</p>
+                                        <p id="nota_hora_entrada"></p>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <p id="nota_matricula_entrada"></p>
                                     </div>
                                 </section>
                             </li>
@@ -54,10 +57,13 @@
                                     <h2>Saida</h2>
                                     <hr />
                                     <div class="d-flex justify-content-center">
-                                        <p>Data: 14/05/2023</p>
+                                        <p id="nota_data_saida"></p>
                                     </div>
                                     <div class="d-flex justify-content-center">
-                                        <p>Hora: 16:48</p>
+                                        <p id="nota_hora_saida"></p>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <p id="nota_matricula_saida"></p>
                                     </div>
                                 </section>
                             </li>
