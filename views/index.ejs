@@ -17,51 +17,112 @@
 <body>
     <%- include('parts/navbar.ejs') -%>
 
-        <div class="row" style="margin-top: 10dvh;">
-            <div class="d-flex justify-content-end col-6">
-                <div class="snote">
-                    <div class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-info btn-lg">Registrar Entrada</button>
-                    </div>
-                    <ul>
-                        <li>
+        <div class="container">
+            <div class="row" style="margin-top: 10dvh;">
+                <div class="d-flex justify-content-end col-6">
+                    <div class="snote">
+                        <div class="d-flex justify-content-center">
+                            <button onclick="RegistroEntrada('<%= name %>', '<%= matricula %>')" type="button"
+                                data-bs-toggle="modal" data-bs-target="#modal_registro_entrada"
+                                class="btn btn-info btn-lg">Registrar Entrada</button>
+                        </div>
+                        <ul>
+                            <li>
                             <section>
-                                <h2>Entrada</h2>
-                                <hr/>
-                                <div class="d-flex justify-content-center">
-                                    <p>Data: 14/05/2023</p>
-                                </div>
-                                <div class="d-flex justify-content-center">
-                                    <p>Hora: 16:48</p>
-                                </div>
-                            </section>
-                        </li>
+                                    <h2>Entrada</h2>
+                                    <hr />
+                                    <div class="d-flex justify-content-center">
+                                        <p>Data: 14/05/2023</p>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <p>Hora: 16:48</p>
+                                    </div>
+                                </section>
+                            </li>
+                    </div>
                 </div>
-            </div>
-            <div class="d-flex justify-content-start col-6">
-                <div class="snote">
-                    <div class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-success btn-lg">Registrar Saida</button>
+                <div class="d-flex justify-content-start col-6">
+                    <div class="snote">
+                        <div class="d-flex justify-content-center">
+                            <button onclick="RegistroSaida('<%= name %>', '<%= matricula %>')" type="button"
+                                data-bs-toggle="modal" data-bs-target="#modal_registro_saida"
+                                class="btn btn-success btn-lg">Registrar Saida</button>
+                        </div>
+                        <ul>
+                            <li>
+                                <section>
+                                    <h2>Saida</h2>
+                                    <hr />
+                                    <div class="d-flex justify-content-center">
+                                        <p>Data: 14/05/2023</p>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <p>Hora: 16:48</p>
+                                    </div>
+                                </section>
+                            </li>
                     </div>
-                    <ul>
-                        <li>
-                            <section>
-                                <h2>Saida</h2>
-                                <hr/>
-                                <div class="d-flex justify-content-center">
-                                    <p>Data: 14/05/2023</p>
-                                </div>
-                                <div class="d-flex justify-content-center">
-                                    <p>Hora: 16:48</p>
-                                </div>
-                            </section>
-                        </li>
                 </div>
             </div>
         </div>
 
+
+        <!-- Modal Entrada -->
+        <div class="modal fade" id="modal_registro_entrada" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Registro Entrada</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                            <div class="d-flex justify-content-center">
+                                <h5>Confirme seus dados</h5>
+                            </div>
+                            <p id="nome_entrada"></p>
+                            <p id="matricula_entrada"></p>
+
+                            
+                                                    
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button onclick="registrar('<%= name %>', '<%= matricula %>' , 'entrada')" type="submit" class="btn btn-primary">Registrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- Modal Saida -->
+        <div class="modal fade" id="modal_registro_saida" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Registro Saida</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="d-flex justify-content-center">
+                            <h5>Confirme seus dados</h5>
+                        </div>
+                        <p id="nome_saida"></p>
+                        <p id="matricula_saida"></p>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button onclick="registrar('<%= name %>', '<%= matricula %>' , 'saida')" type="submit" class="btn btn-primary">Registrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
         <%- include('parts/bootstrapjss.ejs') -%>
-        <script src="../public/javascript/index.js"></script>
+            <script src="../public/javascript/index.js"></script>
 </body>
 
 </html>

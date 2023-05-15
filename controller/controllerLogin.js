@@ -11,7 +11,7 @@ const createSession = async (data) => {
                 password
             } = data
 
-            let query = "select `password`, lv_access, name, `active`, matricula from control_point.control_users where email = ?"
+            let query = "select `password`, lv_access, name,`active`, matricula from control_point.control_users where email = ?"
 
             db.query(query, [email], (err, result) => {
 
@@ -31,7 +31,8 @@ const createSession = async (data) => {
                                     msg: "LOGIN EFETUADO COM SUCESSO",
                                     name: result[0].name,
                                     lv_access: result[0].lv_access,
-                                    active: result[0].active
+                                    active: result[0].active,
+                                    matricula: result[0].matricula
                                 })
                             } else {
                                 reject({

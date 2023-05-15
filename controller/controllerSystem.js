@@ -14,7 +14,7 @@ const getDataUsers = ()=>{
         end as lv_access,
         matricula,
         dt_insert 
-        from control_point.control_users where lv_access = '1' order by active`
+        from control_point.control_users where lv_access != '3' order by active`
 
             db.query(query, (err, result)=>{
                 if(!err){

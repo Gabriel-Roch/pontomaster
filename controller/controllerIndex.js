@@ -3,6 +3,7 @@ const index = (req, res)=>{
         email : req.session.email,
         name : req.session.name,
         lv_access : req.session.lv_access,
+        matricula : req.session.matricula,
         title: "HOME"
     });
 }

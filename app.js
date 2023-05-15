@@ -16,11 +16,18 @@ app.use(session({ secret: 'anythdshdosiauhdasoadasing', resave: true, saveUninit
 const index = require('./routes/routeIndex')
 const login = require('./routes/routeAuth')
 const system = require('./routes/routeSystem')
+const registroPonto = require('./routes/RouteRegistro')
 // ----------------------------------USE ROUTES-----------------------------------------
 app.use(index)
 app.use(login)
 app.use(system)
+app.use(registroPonto)
 // ---------------------------------LISTEN SERVER---------------------------------------
+
+app.use(function(req, res, next) {
+    res.render('notfound', { url: req.url })
+});
+
 app.listen(`${process.env.PORT_APPLICATION}`,()=>{
     console.log("SERVE IS RUNNING")
 })
