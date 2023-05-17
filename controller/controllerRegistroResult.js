@@ -84,6 +84,51 @@ const getSaida = (data) => {
 }
 
 
+const getHistoric = (data)=> {
+    return new Promise((resolve, reject)=>{
+        try{
+
+            const {
+                matricula
+            } = data
+
+            let queryHistoric = `SELECT
+            matricula,
+            nome,
+            DATE_FORMAT(dt_insert, '%d/%m/%Y : %H:%i:%s') as hora,
+            case 
+            when action = "saida" then "SAIDA"
+            when action = "entrada" then "ENTRADA"
+            end as action
+            FROM control_point.control_register_ponto 
+            where matricula = ? order by dt_insert desc limit 7`;
+
+            db.query(queryHistoric,[
+                matricula
+            ], (err, result)=>{
+                if(!err){
+                    resolve({
+                        success: true,
+                        data: result
+                    })
+                }else{
+                    reject({
+                        success: false,
+                        msg: "ERRO: DATABASE\n"+err
+                    })
+                }
+            })
+
+        }catch(err){
+            reject({
+                success: false,
+                msg: "ERRO:getHistoric\n"+err
+            })
+        }
+    })
+}
+
+
 const getRegistroResultEntrada = async (req, res) => {
     try{
         let resultEntrada = await getEntrada(req.query)
@@ -104,7 +149,18 @@ const getRegistroResultSaida = async (req, res) => {
 }
 
 
+const getRegistroHistoric = async (req, res)=>{
+   try{
+        let resultHistoric = await getHistoric(req.query)
+        res.json(resultHistoric)
+   }catch(err){
+    res.json(err)
+   }
+
+}
+
 module.exports = {
     getRegistroResultEntrada,
-    getRegistroResultSaida
+    getRegistroResultSaida,
+    getRegistroHistoric
 }

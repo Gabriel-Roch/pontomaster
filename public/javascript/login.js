@@ -1,5 +1,9 @@
 const form = document.getElementById("form_login")
+const btn_login = document.querySelector("#btn_login")
+
 form.addEventListener('submit', (e) => {
+    btn_login.disabled = true;
+    btn_login.innerHTML = "Logando..."
     e.preventDefault()
     const frm_data = new FormData(form)
     const data = Object.fromEntries(frm_data)
@@ -17,5 +21,7 @@ form.addEventListener('submit', (e) => {
                 return
             }
             alert(result.msg)
+            btn_login.disabled = false;
+            btn_login.innerHTML = "Login"
         })
 })

@@ -1,5 +1,8 @@
 const form = document.getElementById('form_cadastro');
+const btn_cadastrar =  document.querySelector("#btn_cadastrar")
 form.addEventListener('submit', (e) => {
+    btn_cadastrar.disabled = true;
+    btn_cadastrar.innerHTML = "Cadastrando"
     e.preventDefault()
     const frm_data = new FormData(form)
     const data = Object.fromEntries(frm_data)
@@ -18,5 +21,7 @@ form.addEventListener('submit', (e) => {
                 return
             }
             alert(result.msg)
+            btn_cadastrar.disabled = false;
+            btn_cadastrar.innerHTML = "Cadastrar"
         })
 })

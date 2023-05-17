@@ -16,7 +16,7 @@ const UpdateGraficoContas = ()=>{
         Highcharts.chart('grafico', {
             chart: {
                 type: 'pie',
-                width: 500,
+                width: 400,
                 height: 300
             },
             title: {
