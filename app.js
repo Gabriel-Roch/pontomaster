@@ -17,11 +17,13 @@ const index = require('./routes/routeIndex')
 const login = require('./routes/routeAuth')
 const system = require('./routes/routeSystem')
 const registroPonto = require('./routes/RouteRegistro')
+const routeAjustePonto = require('./routes/routeAjustePonto')
 // ----------------------------------USE ROUTES-----------------------------------------
 app.use(index)
 app.use(login)
 app.use(system)
 app.use(registroPonto)
+app.use(routeAjustePonto)
 // ---------------------------------LISTEN SERVER---------------------------------------
 
 app.use(function(req, res, next) {

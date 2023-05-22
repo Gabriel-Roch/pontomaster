@@ -93,15 +93,16 @@ const getHistoric = (data)=> {
             } = data
 
             let queryHistoric = `SELECT
+            id,
             matricula,
             nome,
-            DATE_FORMAT(dt_insert, '%d/%m/%Y : %H:%i:%s') as hora,
+            DATE_FORMAT(dt_insert, '%d/%m/%Y %H:%i:%s') as hora,
             case 
             when action = "saida" then "SAIDA"
             when action = "entrada" then "ENTRADA"
             end as action
             FROM control_point.control_register_ponto 
-            where matricula = ? order by dt_insert desc limit 7`;
+            where matricula = ? order by dt_insert desc limit 14`;
 
             db.query(queryHistoric,[
                 matricula

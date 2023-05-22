@@ -62,16 +62,17 @@
             </div>
             <table class="table">
                 <thead class="table table-dark">
-                  <tr>
-                    <th scope="col">Matricula</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Hora</th>
-                    <th scope="col">Action</th>
-                  </tr>
+                    <tr>
+                        <th scope="col">Matricula</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Tipo</th>
+                        <th>Ações</th>
+                    </tr>
                 </thead>
                 <tbody id="tb_result_body">
                 </tbody>
-              </table>
+            </table>
         </div>
 
 
@@ -91,8 +92,6 @@
                         </div>
                         <p id="nome_entrada"></p>
                         <p id="matricula_entrada"></p>
-
-
 
                     </div>
                     <div class="modal-footer">
@@ -132,9 +131,76 @@
         </div>
 
 
+        <!-- Modal Ajuste-->
+        <div class="modal fade" id="modal_ajuste_ponto" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="title_ajuste"></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form_ajuste_ponto">
+                            <div class="row">
+                                <div class="col-6 d-flex justify-content-center">
+                                    <p id="ajuste_matricula"></p>
+                                </div>
+                                <div class="col-6 d-flex justify-content-center">
+                                    <p id="ajuste_action"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 d-flex justify-content-center">
+                                    <label for="ajuste_origin_date" style="font-size: 15pt; font: bold;">Horario
+                                        Registrado</label>
+                                </div>
+                                <div class="col-6 d-flex justify-content-center">
+                                    <label for="ajuste_new_date" style="font-size: 15pt; font: bold;">Horario
+                                        Correto</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 d-flex justify-content-center">
+                                    <input id="input_origin_date" class="mt-4" id="ajuste_origin_date"
+                                        type="datetime-local" value="" disabled="true" name="ajuste_origin_date">
+                                </div>
+                                <div class="col-6 d-flex justify-content-center">
+                                    <input id="input_new_date" class="mt-4" id="ajuste_new_date" type="datetime-local"
+                                        value="" name="ajuste_new_date">
+                                </div>
+                            </div>
+                            <div class="d-flex mt-3">
+                                <textarea class="form-control" name="ajuste_remark" cols="30" rows="3"
+                                    placeholder="Justificativa" maxlength="255"></textarea>
+                            </div>
+
+                            <!-- HIDDEN INPUTS -->
+                            <input type="text" class="d-none" id="hiddem_ajuste_old_date" name="hidden_ajuste_old_date" value="">
+                            <input type="text" class="d-none" id="hidden_ajuste_id" name="hidden_ajuste_id" value="">
+                            <input type="text" class="d-none" id="hidden_ajuste_nome" name="hidden_ajuste_nome" value="">
+                            <input type="text" class="d-none" id="hidden_ajuste_matricula" name="hidden_ajuste_matricula" value="">
+                            <input type="text" class="d-none" id="hidden_ajuste_action" name="hidden_ajuste_action" value="">
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- open modal -->
+        <button id="open_modal_ajuste" type="button" class="d-none" data-bs-toggle="modal"
+            data-bs-target="#modal_ajuste_ponto"></button>
+
 
         <%- include('parts/bootstrapjss.ejs') -%>
             <script src="../public/javascript/index.js"></script>
+            <script src="../public/javascript/ajustePonto.js"></script>
 </body>
 
 </html>

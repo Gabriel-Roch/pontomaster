@@ -6,7 +6,7 @@ const { authenticate , authenticateMid , authenticateFull  } = require('../contr
 
 route.get('/users',authenticateFull, users)
 route.get('/users/usersdata',authenticateFull, usersData)
-route.get('/users/update/:id/:action',authenticateFull, usersupdate)
+route.put('/users/update/:id/:action',authenticateFull, usersupdate)
 route.get('/users/graficos/contas',authenticateFull, apiGraficoContas)
 
 

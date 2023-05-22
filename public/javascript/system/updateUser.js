@@ -1,7 +1,7 @@
 const enabled = (id, name, matricula, lv_access)=>{
     return new Promise((resolve, reject)=>{
         fetch(`/users/update/${id}/enabled`,{
-            method: "GET",
+            method: "PUT",
             headers: {
                 "Content-Type" : "application/json"
             }
@@ -20,7 +20,7 @@ const enabled = (id, name, matricula, lv_access)=>{
 const disabled = (id, name, matricula, lv_access)=>{
     return new Promise((resolve, reject)=>{
         fetch(`/users/update/${id}/disabled`,{
-            method: "GET",
+            method: "PUT",
             headers: {
                 "Content-Type" : "application/json"
             }

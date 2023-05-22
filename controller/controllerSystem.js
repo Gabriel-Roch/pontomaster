@@ -54,11 +54,13 @@ const update = (id, action) =>{
     
     try{
         return new Promise((resolve, reject)=>{  
-        let queryDisable = `update control_point.control_users set active = 'disabled' where id = '${id}'`
-        let queryEnabled = `update control_point.control_users set active = 'enabled' where id = '${id}'`
+        let queryDisable = `update control_point.control_users set active = 'disabled' where id = ?`
+        let queryEnabled = `update control_point.control_users set active = 'enabled' where id = ?`
         
         if(action == "enabled"){
-            db.query(queryEnabled, (err)=>{
+            db.query(queryEnabled,[
+                id
+            ], (err)=>{
                 if(!err)
                 resolve({
                     success: true,
@@ -71,7 +73,9 @@ const update = (id, action) =>{
                 })
             })
         }else if(action == "disabled"){
-            db.query(queryDisable, (err)=>{
+            db.query(queryDisable,[
+                id
+            ], (err)=>{
                 if(!err)
                 resolve({
                     success: true,

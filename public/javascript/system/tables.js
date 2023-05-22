@@ -23,7 +23,7 @@ const tableDisabled = ()=>{
             '${result[i].name}',
             '${result[i].matricula}',
             '${result[i].lv_access}'
-        )" class="bg-success" style="color:white" >ATIVAR</button>
+        )" class="bg-success" style="color:white; border:none; margin-top: 10px" >ATIVAR</button>
         </td>
         </tr>`
     }
@@ -70,7 +70,7 @@ const tableEnabled = ()=>{
             '${result[i].name}',
             '${result[i].matricula}',
             '${result[i].lv_access}'
-        )" class="bg-danger" style="color:white" >DESATIVAR</button>
+        )" class="bg-danger" style="color:white; border: none; margin-top: 10px" >DESATIVAR</button>
         </td>
         </tr>`
     }
