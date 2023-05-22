@@ -141,3 +141,4 @@ const getResultPonto = (matricula) => {
     getSaida(matricula)
     getHistoric(matricula)
 }
+

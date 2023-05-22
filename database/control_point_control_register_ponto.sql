@@ -31,7 +31,7 @@ CREATE TABLE `control_register_ponto` (
   `dt_insert` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `action` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +40,7 @@ CREATE TABLE `control_register_ponto` (
 
 LOCK TABLES `control_register_ponto` WRITE;
 /*!40000 ALTER TABLE `control_register_ponto` DISABLE KEYS */;
+INSERT INTO `control_register_ponto` VALUES (1,'1234598765','Gabriel Teste 5','2023-05-17 05:00:21','entrada'),(2,'1234598765','Gabriel Teste 5','2023-05-17 05:00:25','saida'),(3,'123456789','administrador','2023-05-17 05:00:52','entrada'),(4,'123456789','administrador','2023-05-17 05:00:56','saida'),(5,'123456789','administrador','2023-05-20 16:12:13','entrada'),(6,'123456789','administrador','2023-05-20 16:12:18','saida'),(7,'123456789','administrador','2023-05-21 16:02:08','entrada'),(8,'123456789','administrador','2023-05-21 16:02:10','saida'),(9,'181687446','Teste Teste','2023-05-22 01:54:07','entrada'),(10,'181687446','Teste Teste','2023-05-22 01:54:09','saida'),(11,'123456789','administrador','2023-05-22 03:12:16','entrada'),(12,'123456789','administrador','2023-05-22 03:12:20','saida'),(13,'181687446','Teste Teste','2023-05-22 03:24:04','entrada'),(14,'181687446','Teste Teste','2023-05-22 03:24:07','saida');
 /*!40000 ALTER TABLE `control_register_ponto` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-15  1:23:21
+-- Dump completed on 2023-05-22  0:44:03

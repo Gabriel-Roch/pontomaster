@@ -29,12 +29,11 @@ CREATE TABLE `control_data_reports` (
   `nome_solicitante` varchar(120) DEFAULT NULL,
   `matricula_solicitante` varchar(45) DEFAULT NULL,
   `categoria` varchar(80) DEFAULT NULL,
-  `motivo` longtext,
   `remark` longtext,
   `dt_insert` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `dt_resposta` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,6 +42,7 @@ CREATE TABLE `control_data_reports` (
 
 LOCK TABLES `control_data_reports` WRITE;
 /*!40000 ALTER TABLE `control_data_reports` DISABLE KEYS */;
+INSERT INTO `control_data_reports` VALUES (1,'Teste Teste','181687446','problema tecnico','dasd','2023-05-22 03:41:38',NULL),(2,'Teste Teste','181687446','problema tecnico','SOCOROROOOO','2023-05-22 03:42:15',NULL);
 /*!40000 ALTER TABLE `control_data_reports` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-15  1:23:20
+-- Dump completed on 2023-05-22  0:44:03

@@ -1,55 +1,53 @@
-  <nav class="navbar navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">Ponto Master</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
-        aria-controls="offcanvasDarkNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
-        aria-labelledby="offcanvasDarkNavbarLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">MENU</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-            aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <% if (lv_access==1) { %>
-                <label class="nav-link active text-uppercase" aria-current="page" href="#">COLABORADOR: <%= name %>
-                    </label>
-                <% } %>
-                  <% if (lv_access==3) { %>
-                    <label class="nav-link active text-uppercase" aria-current="page" href="#">ADMIN: <%= name %>
-                        </label>
-                    <% } %>
-            </li>
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Ponto Master</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+      aria-controls="offcanvasDarkNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+      aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">MENU</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <% if (lv_access==1) { %>
+              <label class="nav-link active text-uppercase" aria-current="page" href="#">COLABORADOR: <%= name %>
+              </label>
+              <% } %>
+                <% if (lv_access==3) { %>
+                  <label class="nav-link active text-uppercase" aria-current="page" href="#">ADMIN: <%= name %>
+                  </label>
+                  <% } %>
+          </li>
 
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Configurações
-              </a>
-              <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item" href="#">Reportar um problema</a></li>
-                <li><a class="dropdown-item" href="#">Alterar senha</a></li>
-                <li><a class="dropdown-item" href="#">Verificar informações da conta</a></li>
-              </ul>
-            </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Configurações
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a onclick="getCategoria()" type="button" data-bs-toggle="modal" data-bs-target="#modal_report"
+                  class="dropdown-item" href="#">Reportar um problema</a></li>
+              <li><a class="dropdown-item" href="#">Alterar senha</a></li>
+              <li><a class="dropdown-item" href="#">Verificar informações da conta</a></li>
+            </ul>
+          </li>
 
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-               Recursos
-              </a>
-              <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item" href="#">Historico</a></li>
-                <li><a class="dropdown-item" href="#">Acompanhar Ajustes de Ponto</a></li>
-                <li><a class="dropdown-item" href="#">Relatorio de Ponto</a></li>
-              </ul>
-            </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Recursos
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="#">Historico</a></li>
+              <li><a class="dropdown-item" href="#">Acompanhar Ajustes de Ponto</a></li>
+              <li><a class="dropdown-item" href="#">Relatorio de Ponto</a></li>
+            </ul>
+          </li>
 
-            <% if (lv_access==3) { %>
+          <% if (lv_access==3) { %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
@@ -63,24 +61,55 @@
             </li>
             <% } %>
 
-            <% if (lv_access==3) { %>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  Gerenciamento Sistema
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark">
-                  <li><a class="dropdown-item" href="/users">Usuarios</a></li>
-                  <li><a class="dropdown-item" href="#">Metricas</a></li>
-                  <li><a class="dropdown-item" href="#">Gerenciamento de repositorios</a></li>
-                  <li><a class="dropdown-item" href="#">Report</a></li>
-                </ul>
-              </li>
-              <% } %>
+              <% if (lv_access==3) { %>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Gerenciamento Sistema
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="/users">Usuarios</a></li>
+                    <li><a class="dropdown-item" href="#">Metricas</a></li>
+                    <li><a class="dropdown-item" href="#">Gerenciamento de repositorios</a></li>
+                    <li><a class="dropdown-item" href="#">Report</a></li>
+                  </ul>
+                </li>
+                <% } %>
 
-                <li><a class="dropdown-item" href="/logout">Logout</a></li>
-          </ul>
-        </div>
+                  <li><a class="dropdown-item" href="/logout">Logout</a></li>
+        </ul>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
+
+<!-- Modal Report -->
+<div class="modal fade" id="modal_report" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Registrar Problema</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="form_report">
+
+          <select class="form-select" name="report_categoria" id="report_categorias">
+          </select>
+          <textarea class="form-control mt-3" name="report_remark" id="report_remark" cols="30" rows="5"
+            maxlength="255"></textarea>
+          <!-- inputs hidden -->
+          <input type="text" class="d-none" name="hidden_report_name" value="<%= name %>">
+          <input type="text" class="d-none" name="hidden_report_matricula" value="<%= matricula %>">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-primary">Abrir Ticket</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/public/javascript/configuracao/report.js"></script>

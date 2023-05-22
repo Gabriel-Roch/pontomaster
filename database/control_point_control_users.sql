@@ -34,7 +34,7 @@ CREATE TABLE `control_users` (
   `matricula` varchar(45) NOT NULL,
   `dt_insert` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`,`email`,`matricula`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `control_users` (
 
 LOCK TABLES `control_users` WRITE;
 /*!40000 ALTER TABLE `control_users` DISABLE KEYS */;
-INSERT INTO `control_users` VALUES (1,'admin@gmail.com','administrador','$2b$15$8Jct5B1d01kVRdb9Hsc5FOUyvOfAKNenRwFMhD.OIY755gW4KA0y2','enabled','3','123456789','2023-05-15 04:21:50');
+INSERT INTO `control_users` VALUES (1,'admin@gmail.com','administrador','$2b$15$8Jct5B1d01kVRdb9Hsc5FOUyvOfAKNenRwFMhD.OIY755gW4KA0y2','enabled','3','123456789','2023-05-15 04:21:50'),(2,'teste@gmail.com','Teste Teste','$2b$15$YZMWwpCuAyV/5CKHoa/YtOzuM8Z1T6.Y2d5wi0W13ehglYcAu207C','enabled','1','181687446','2023-05-17 02:36:14'),(3,'teste1@gmail.com','Teste teste ','$2b$15$RsSAnSxUZfIZiJ/VMfqv2uERn50qxZPJGRegP3/Hal1rJTS.X/sNC','enabled','1','1737772','2023-05-17 03:33:50'),(4,'teste2@gmail.com','Teste gabriel','$2b$10$uSfeGMtUEXX4OlkEtbW.X.rdJBbLIld16ifVBmOIcHD9iDfSgmNIS','enabled','1','14845151','2023-05-17 04:53:21'),(5,'teste5@gmail.com','Gabriel Teste 5','$2b$14$FQLpqUG7bJL2MzmwbT9lj.Thty6idXKuTKaAX3batW7ygIZr7nBHS','enabled','1','1234598765','2023-05-17 04:58:55');
 /*!40000 ALTER TABLE `control_users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-15  1:23:21
+-- Dump completed on 2023-05-22  0:44:03
