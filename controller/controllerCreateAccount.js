@@ -44,7 +44,7 @@ const verifyEmail = (data) => {
                 } else {
                     reject({
                         success: false,
-                        erro: "ERRO DATABASE"
+                        erro: "ERRO DATABASE verifyEmail"
                     })
                 }
             })
@@ -81,7 +81,7 @@ const verifyMatricula = (data)=>{
                 } else {
                     reject({
                         success: false,
-                        erro: "ERRO DATABASE"
+                        erro: "ERRO DATABASE verifyMatricula"
                     })
                 }
             })

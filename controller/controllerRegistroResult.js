@@ -29,7 +29,7 @@ const getEntrada = (data) => {
                 }else{
                     reject({
                         success: false,
-                        msg: "ERRO:DATABASE\n"+err
+                        msg: "ERRO:DATABASE getEntrada\n"+err
                     })
                 }
             })
@@ -70,7 +70,7 @@ const getSaida = (data) => {
                 }else{
                     reject({
                         success: false,
-                        msg: "ERRO:DATABASE\n"+err
+                        msg: "ERRO:DATABASE getSaida\n"+err
                     })
                 }
             })
@@ -97,10 +97,7 @@ const getHistoric = (data)=> {
             matricula,
             nome,
             DATE_FORMAT(dt_insert, '%d/%m/%Y %H:%i:%s') as hora,
-            case 
-            when action = "saida" then "SAIDA"
-            when action = "entrada" then "ENTRADA"
-            end as action
+            action
             FROM control_point.control_register_ponto 
             where matricula = ? order by dt_insert desc limit 14`;
 
@@ -115,7 +112,7 @@ const getHistoric = (data)=> {
                 }else{
                     reject({
                         success: false,
-                        msg: "ERRO: DATABASE\n"+err
+                        msg: "ERRO: DATABASE getHistoric\n"+err
                     })
                 }
             })

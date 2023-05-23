@@ -36,7 +36,7 @@ const getDataPonto = (data) => {
                 } else {
                     reject({
                         success: false,
-                        msg: "ERRO DATABASE \n" + err
+                        msg: "ERRO DATABASE getDataPonto \n" + err
                     })
                 }
             })
@@ -85,7 +85,7 @@ const insertAjuste = (data) => {
                 } else {
                     reject({
                         success: false,
-                        msg: "ERRO: DATABASE\n" + err
+                        msg: "ERRO: DATABASE insertAjuste\n" + err
                     })
                 }
             })

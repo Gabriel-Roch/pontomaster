@@ -24,7 +24,7 @@ const VerifyRegistro = (data) => {
                         } else {
                             reject({
                                 success: false,
-                                msg: "ERRO:DATABASE\n" + err
+                                msg: "ERRO:DATABASE VerifyRegistro\n" + err
                             })
                         }
                     })
@@ -42,7 +42,7 @@ const VerifyRegistro = (data) => {
                     } else {
                         reject({
                             success: false,
-                            msg: "ERRO:DATABASE\n" + err
+                            msg: "ERRO:DATABASE VerifyRegistro\n" + err
                         })
                     }
                 })

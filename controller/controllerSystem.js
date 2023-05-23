@@ -45,6 +45,7 @@ const users = (req, res)=>{
         email : req.session.email,
         name : req.session.name,
         lv_access : req.session.lv_access,
+        matricula : req.session.matricula,
         title : "CONTROLE DE USUARIOS"
     })
 }
@@ -69,7 +70,7 @@ const update = (id, action) =>{
                 else
                 reject({
                     success: false,
-                    msg: "ERRO:\n"+err
+                    msg: "ERRO: update\n"+err
                 })
             })
         }else if(action == "disabled"){
@@ -84,7 +85,7 @@ const update = (id, action) =>{
                 else
                 reject({
                     success: false,
-                    msg: "ERRO:\n"+err
+                    msg: "ERRO: update\n"+err
                 })
             })
         }

@@ -106,6 +106,7 @@ const getHistoric = (matricula) => {
     })
         .then(response => response.json())
         .then(result => {
+            console.log(result)
             if (result.success) {
                 if (result.data.length != 0) {
                     table_result.setAttribute("class", "container-fluid")

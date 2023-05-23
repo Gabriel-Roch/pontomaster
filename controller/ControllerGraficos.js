@@ -6,12 +6,9 @@ const getDataGraficoContas = (req, res) => {
         try {
 
             let query = `SELECT 
-            case 
-            when active = "disabled" then  "Desativadas"
-            else "Ativadas"
-            end as name,
+            active as name,
             count(*) as y
-            FROM control_point.control_users where lv_access != 3 group by active `;
+            FROM control_point.control_users where lv_access != 3 group by active`;
 
             db.query(query, (err, result) => {
                 if (!err) {

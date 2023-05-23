@@ -15,7 +15,7 @@ const getCategorias = () => {
                 } else {
                     reject({
                         success: false,
-                        msg: "ERRO: DATABASE\n" + err
+                        msg: "ERRO: DATABASE getCategorias\n" + err
                     })
                 }
             })
@@ -58,7 +58,7 @@ const insertReport = (data) => {
                 } else {
                     reject({
                         success: false,
-                        msg: "ERRO: DATABASE\n" + err
+                        msg: "ERRO: DATABASE insertReport\n" + err
                     })
                 }
             })
