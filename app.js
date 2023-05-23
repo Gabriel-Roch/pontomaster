@@ -33,5 +33,5 @@ app.use(function(req, res, next) {
 });
 
 app.listen(`${process.env.PORT_APPLICATION}`,()=>{
-    console.log("SERVE IS RUNNING")
+    console.log(`SERVE IS RUNNING  ${process.env.PORT_APPLICATION}`)
 })
