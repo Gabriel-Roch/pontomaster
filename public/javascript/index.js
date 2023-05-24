@@ -105,15 +105,14 @@ const getHistoric = (matricula) => {
         }
     })
         .then(response => response.json())
-        .then(result => {
+        .then(result => {getDataAjustePonto
             if (result.success) {
                 if (result.data.length != 0) {
-                    table_result.setAttribute("class", "container-fluid")
+                    table_result.setAttribute("class", "container")
                     let table_result_body = ""
                     for (i in result.data) {
                         table_result_body += `<tr>
                     <td>${result.data[i].matricula}</td>
-                    <td>${result.data[i].nome}</td>
                     <td>${result.data[i].hora}</td>
                     <td>${result.data[i].action}</td>
                     <td><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16" 

@@ -36,21 +36,17 @@
             </ul>
           </li>
 
-          <% if (lv_access!=3) { %>
+          
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Recursos
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">
               <li><a class="dropdown-item" href="#">Historico</a></li>
-              <li><button class="dropdown-item" type="button"
-                data-bs-toggle="modal"
-                data-bs-target="#modal_tabela_historico" class="dropdown-item" 
-                >Solicitar Ajuste de Ponto</button></li>
               <li><a class="dropdown-item" href="#">Relatorio de Ponto</a></li>
             </ul>
           </li>
-          <% } %>
+          
 
           <% if (lv_access==3) { %>
             <li class="nav-item dropdown">

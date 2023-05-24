@@ -13,55 +13,50 @@
 
 <body>
 
-    <div class="container" style="max-width: 700px;">
-
-        <div class="p-5" style="border-radius: 10px;">
-            <h1 class="d-flex justify-content-start mt-2" style="color: black;">CRIE SUA
+    <div class="container mt-5" style="max-width: 700px;">
+            <h1 class="d-flex justify-content-center mt-2" style="color: black;">CRIE SUA
                 CONTA</h1>
             <div>
-                <p>
+                <p class="d-flex justify-content-center">
                     Informe seus dados abaixo para criar sua conta
                 </p>
             </div>
-
         </div>
 
-        <div class="container" style="max-width: 600px;">
+        <div class="container mt-2" style="max-width: 600px;">
             <form id="form_cadastro" method="POST" action="/registration">
+           
                 <div class="mb-3">
+
+                    <label class="mt-1" for="nome">Nome</label>
+                    <input id="nome" type="text" class="form-control" name="nome" required>
+
+                    <label class="mt-1" for="matricula">Matricula</label>
+                    <input id="matricula" type="text" class="form-control" name="matricula" required>
+
+
+                    <label for="senha" class="mt-1">Senha</label>
+                    <input id="senha" type="password" class="form-control" id="senha" name="senha" required>
+
+                    <label for="confirmar_senha" class="mt-1">Confirme sua senha</label>
+                    <input type="password" class="form-control" id="confirmar_senha" name="confirme_senha" required>
+                </div>
+                     <div class="mb-3">
                     <label for="email" class="form-label">Endereço de Email</label>
                     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email"
                         name="email" required>
                     <div id="emailhelp" class="form-text">Nunca compartilharemos seu e-mail com mais ninguém.
                     </div>
                 </div>
-                <div class="mb-3">
-
-                    <label class="mt-1" for="matricula">Matricula</label>
-                    <input id="matricula" type="text" class="form-control" name="matricula" required>
-
-                    <label class="mt-1" for="empresa">Empresa</label>
-                    <select name="empresa" id="empresa" class="form-control" required>
-                    </select>
-
-                    <label class="mt-1" for="nome">Nome</label>
-                    <input id="nome" type="text" class="form-control" name="nome" required>
-
-                    <label class="mt-1" for="telefone">Telefone</label>
-                    <input id="telefone" type="number" class="form-control" name="telefone" required>
-
-                    <label for="senha" class="mt-1">Senha</label>
-                    <input id="senha" type="password" class="form-control" id="senha" name="senha" placeholder="Senha"
-                        required>
-
-                    <label for="confirmar_senha" class="mt-1">Confirme sua senha</label>
-                    <input type="password" class="form-control" id="confirmar_senha" name="confirme_senha"
-                        placeholder="Confirme sua senha" required>
-                </div>
                 <div class="mb-3 d-flex justify-content-center">
-                    <a href="/login">voltar</a>
+                    <div class="p-3">
+                        <button id="btn_cadastrar" type="submit" class="btn btn-primary">Cadastrar</button>
+                    </div>
+                    <div class=p-3>
+                        <a class="btn btn-secondary" href="/login">voltar</a>
+                    </div>
                 </div>
-                <button id="btn_cadastrar" type="submit" class="btn btn-primary">Cadastrar</button>
+               
             </form>
         </div>
     </div>
