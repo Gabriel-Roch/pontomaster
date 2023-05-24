@@ -1,11 +1,12 @@
 const modal_ajuste_ponto = document.querySelector("#modal_ajuste_ponto")
 const open_modal_ajuste = document.querySelector("#open_modal_ajuste")
 
-//inputs
+//valores
 const title_ajuste = document.querySelector("#title_ajuste")
 const ajuste_matricula = document.querySelector("#ajuste_matricula")
 const ajuste_action = document.querySelector("#ajuste_action")
 const input_origin_date = document.querySelector("#input_origin_date")
+const action_ajuste = document.querySelector("#action_ajuste")
 
 //HIDDEN INPUTS
 const hiddem_ajuste_old_date  = document.querySelector("#hiddem_ajuste_old_date")
@@ -14,11 +15,10 @@ const hidden_ajuste_nome = document.querySelector("#hidden_ajuste_nome")
 const hidden_ajuste_matricula = document.querySelector("#hidden_ajuste_matricula")
 const hidden_ajuste_action = document.querySelector("#hidden_ajuste_action")
 
-
 //forms
 const form_ajuste_ponto = document.querySelector("#form_ajuste_ponto")
 
-const getDataAjustePonto = (id, matricula)=>{
+const getDataAjustePonto = (id)=>{
     fetch(`/ajuste/solicitarajuste?id=${id}`,{
         method: "GET",
         headers: {
@@ -34,6 +34,7 @@ const getDataAjustePonto = (id, matricula)=>{
             ajuste_matricula.innerHTML = "Matricula: " + result.data[0].matricula
             input_origin_date.value = result.data[0].data
             input_new_date.value = result.data[0].data
+            action_ajuste.innerHTML = result.data[0].action
             open_modal_ajuste.click()
             //hidden inputs
             hidden_ajuste_id.value = id
@@ -69,3 +70,4 @@ form_ajuste_ponto.addEventListener("submit", (e)=>{
             alert(result.msg)
     })
 })
+

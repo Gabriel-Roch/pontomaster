@@ -1,0 +1,30 @@
+<!-- Modal Report -->
+<div class="modal fade" id="modal_report" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Registrar Problema</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="form_report">
+  
+            <select class="form-select" name="report_categoria" id="report_categorias">
+            </select>
+            <textarea class="form-control mt-3" name="report_remark" id="report_remark" cols="30" rows="5"
+              maxlength="255"></textarea>
+            <!-- inputs hidden -->
+            <input type="text" class="d-none" name="hidden_report_name" value="<%= name %>">
+            <input type="text" class="d-none" name="hidden_report_matricula" value="<%= matricula %>">
+  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="submit" class="btn btn-primary">Abrir Ticket</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="/public/javascript/configuracao/report.js"></script>

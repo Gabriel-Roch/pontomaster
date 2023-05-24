@@ -1,5 +1,5 @@
 const authenticate = (req, res, next)=>{
-    if(req.session.email && req.session.active == "enabled")
+    if(req.session.login_matricula && req.session.active == "enabled")
     next()
     else
     res.render('login',{
@@ -7,7 +7,7 @@ const authenticate = (req, res, next)=>{
     })
 }
 const authenticateMid = (req, res, next)=>{
-    if(req.session.email && req.session.lv_access == 2 && req.session.active == "enabled" )
+    if(req.session.login_matricula && req.session.lv_access == 2 && req.session.active == "enabled" )
     next()
     else
     res.render('login',{
@@ -17,7 +17,7 @@ const authenticateMid = (req, res, next)=>{
 
 
 const authenticateFull = (req, res, next)=>{
-    if(req.session.email && req.session.lv_access == 3 && req.session.active == "enabled" )
+    if(req.session.login_matricula && req.session.lv_access == 3 && req.session.active == "enabled" )
     next()
     else
     res.render('login',{

@@ -1,22 +1,13 @@
-const db = require('../database/connection')
+const db = require("../database/connection")
 
-
-const getDataGraficoContas = (req, res) => {
+const getDataEmpresa = () => {
     return new Promise((resolve, reject) => {
         try {
 
             let query = `SELECT 
-            CASE
-                WHEN active = 'disabled' THEN 'Desativadas'
-                ELSE 'Ativadas'
-            END AS name,
-            COUNT(*) AS y
-        FROM
-            control_point.control_users
-        WHERE
-            lv_access != 3
-        GROUP BY active 	
-        `;
+    empresas
+FROM
+    control_point.control_data_empresas;`
 
             db.query(query, (err, result) => {
                 if (!err) {
@@ -27,28 +18,30 @@ const getDataGraficoContas = (req, res) => {
                 } else {
                     reject({
                         success: false,
-                        msg: err
+                        msg: "ERRO:DATABASE getDataEmpresa" + err
                     })
                 }
             })
+
         } catch (err) {
             reject({
                 success: false,
-                msg: "ERRO: GETGRAFICOCONTAS\n" + err
+                msg: "ERRO: getDataEmpresa, Contate o administrador do sistema" + err
             })
         }
     })
 }
 
-const apiGraficoContas = async (req, res) => {
+
+const getEmpresas = async (req, res) => {
     try{
-        let result = await getDataGraficoContas()
-        res.json(result.data)
+        let resultEmpresas = await getDataEmpresa()
+        res.json(resultEmpresas)
     }catch(err){
         res.json(err)
     }
 }
 
 module.exports = {
-    apiGraficoContas
+    getEmpresas
 }

@@ -27,7 +27,7 @@ const verifyEmail = (data) => {
                 email,
             } = data
 
-            let query = `select count(email) as cont from control_point.control_users where email = ?`;
+            let query = `SELECT COUNT(email) as cont FROM control_point.control_users WHERE email = ?`;
 
             db.query(query, [email], (err, result) => {
                 if (!err) {
@@ -64,7 +64,7 @@ const verifyMatricula = (data)=>{
                 matricula,
             } = data
 
-            let query = `select count(matricula) as cont from control_point.control_users where matricula = ?`;
+            let query = `SELECT COUNT(matricula) as cont FROM control_point.control_users WHERE matricula = ?`;
 
             db.query(query, [matricula], (err, result) => {
                 if (!err) {
@@ -103,16 +103,19 @@ const createAccountDatabase = (data) => {
             const {
                 email,
                 nome,
-                matricula
+                matricula,
+                telefone
             } = data
 
-            let query = "insert into control_point.control_users (email, `name`, `password`, matricula) values (?,?,?,?)";
+            let query = "INSERT INTO control_point.control_users (email, `name`, `password`, matricula, telefone, empresa) VALUES (?,?,?,?,?)";
             
             db.query(query, [
                 email,
                 nome,
                 senhacrypto,
-                matricula
+                matricula,
+                telefone,
+                empresa
             ], (err) => {
                 if (!err) {
                     resolve({

@@ -7,16 +7,19 @@ const getDataPonto = (data) => {
             const {
                 id
             } = data
-
+         
             let query = `SELECT
             id,
             matricula,
             nome,
             DATE_FORMAT(dt_insert, '%Y-%m-%dT%H:%i') as data,
             DATE_FORMAT(dt_insert, '%Y-%m-%dT%H:%i') as dt_insert,
-            action
+          CASE
+                WHEN action = 'saida' THEN 'SAIDA'
+                ELSE 'ENTRADA'
+            END AS action
 			FROM control_point.control_register_ponto 
-            where id = ?`
+            WHERE id = ?`
 
             db.query(query, [
                 id
@@ -63,9 +66,9 @@ const insertAjuste = (data) => {
                 hidden_ajuste_action
             } = data
 
-            let query = `insert into control_point.control_data_ajustes 
+            let query = `INSERT INTO control_point.control_data_ajustes 
             (id_ajuste, matricula, tipo, old_date, new_date, remark, solicitante_nome)
-            values
+            VALUES
             (?,?,?,?,?,?,?)`;
 
             db.query(query, [

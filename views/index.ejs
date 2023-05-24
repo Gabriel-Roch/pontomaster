@@ -56,7 +56,7 @@
             </div>
         </div>
 
-        <div id="table_result" class="container-fluid d-none" style="margin-top: 15dvh;">
+        <div id="table_resulta" class="container-fluid d-none" style="margin-top: 15dvh;">
             <div class="d-flex justify-content-center">
                 <h2>Historico Ultimos 7 dias</h2>
             </div>
@@ -70,7 +70,7 @@
                         <th>Ações</th>
                     </tr>
                 </thead>
-                <tbody id="tb_result_body">
+                <tbody id="tb_result_bodyy">
                 </tbody>
             </table>
         </div>
@@ -82,8 +82,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Registro Entrada</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title">Solicitar Ajuste Ponto</h5>
                     </div>
                     <div class="modal-body">
 
@@ -103,7 +102,42 @@
             </div>
         </div>
 
+              <!-- Modal TABELA AJUSTE -->
+              <div class="modal fade" id="modal_tabela_historico" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title">Registro Entrada</h5>
+                          </div>
 
+                           <div>
+                            <div id="table_result" class="container-fluid" style="">
+                                <div class="d-flex justify-content-center">
+                                    <h2>Historico Ultimos 7 dias</h2>
+                                </div>
+                                <table class="table">
+                                    <thead class="table table-dark">
+                                        <tr>
+                                            <th scope="col">Matricula</th>
+                                            <th scope="col">Nome</th>
+                                            <th scope="col">Hora</th>
+                                            <th scope="col">Tipo</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tb_result_body">
+                                    </tbody>
+                                </table>
+                            </div>
+                           </div>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+       
         <!-- Modal Saida -->
         <div class="modal fade" id="modal_registro_saida" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -141,8 +175,12 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+
                         <form id="form_ajuste_ponto">
                             <div class="row">
+                               <p id="action_ajuste" class="display-4 d-flex justify-content-center">
+                                    SAIDA
+                               </p>
                                 <div class="col-6 d-flex justify-content-center">
                                     <p id="ajuste_matricula"></p>
                                 </div>
@@ -186,6 +224,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button id="modal_tabela_historico" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modal_tabela_historico">Voltar</button>
                         <button type="submit" class="btn btn-primary">Enviar</button>
                         </form>
                     </div>
@@ -193,6 +232,7 @@
             </div>
         </div>
 
+        
         <!-- open modal -->
         <button id="open_modal_ajuste" type="button" class="d-none" data-bs-toggle="modal"
             data-bs-target="#modal_ajuste_ponto"></button>
@@ -201,6 +241,9 @@
         <%- include('parts/bootstrapjss.ejs') -%>
             <script src="../public/javascript/index.js"></script>
             <script src="../public/javascript/ajustePonto.js"></script>
+            <%- include('parts/report.ejs') -%>
+
+
 </body>
 
 </html>

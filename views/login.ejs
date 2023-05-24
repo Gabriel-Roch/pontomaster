@@ -20,14 +20,14 @@
                 <div class="col-6">
                     <form id="form_login" method="POST" action="/loginauthetication">
                         <div class="mb-3">
-                            <label for="email" class="form-label">Endereço de Email</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
-                            <div id="emailhelp" class="form-text">Nunca compartilharemos seu e-mail com mais ninguém.
+                            <label for="login_matricula" class="form-label">Matricula</label>
+                            <input type="text" class="form-control" id="login_matricula" id="login_matricula" name="login_matricula" required>
+                            <div id="emailhelp" class="form-text"> Nunca compartilhe sua senha com ninguem
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="senha" class="form-label">Senha</label>
-                            <input type="password" class="form-control" id="senha" name="password">
+                            <input type="password" class="form-control" id="senha" name="password" required>
                         </div>
                         <div class="mb-3 d-flex justify-content-center">
                             <a href="/createaccount">Criar Conta</a>

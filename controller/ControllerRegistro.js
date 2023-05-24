@@ -11,7 +11,16 @@ const VerifyRegistro = (data) => {
             } = data
 
             if (action == "entrada") {
-                let queryVerifyPonto = `select count(*) as count FROM control_point.control_register_ponto where matricula = ? and dt_insert like '%${dateFormatada()}%' and action = 'entrada'`
+                
+                let queryVerifyPonto = `SELECT 
+                COUNT(*) AS count
+            FROM
+                control_point.control_register_ponto
+            WHERE
+                matricula = ?
+                    AND dt_insert LIKE '%${dateFormatada()}%'
+                    AND action = 'entrada'`;
+
                     db.query(queryVerifyPonto, [
                         matricula
                     ], (err, result) => {
@@ -29,7 +38,16 @@ const VerifyRegistro = (data) => {
                         }
                     })
             } else if (action == "saida") {
-                let queryVerifyPonto = `select count(*) as count FROM control_point.control_register_ponto where matricula = ? and dt_insert like '%${dateFormatada()}%' and action = 'saida'`
+                
+                let queryVerifyPonto = `SELECT 
+                COUNT(*) AS count
+            FROM
+                control_point.control_register_ponto
+            WHERE
+                matricula = ?
+                    AND dt_insert LIKE '%${dateFormatada()}%'
+                    AND action = 'saida'`;
+
                 db.query(queryVerifyPonto, [
                     matricula
                 ], (err, result) => {
@@ -72,7 +90,7 @@ const insertRegistro = (dados, body)=>{
             } = body
 
             if(action == "entrada" && data == 0){
-                let insertPonto = `insert into control_point.control_register_ponto (matricula, nome, action) values (?,?,?)`
+                let insertPonto = `INSERT INTO control_point.control_register_ponto (matricula, nome, action) VALUES (?,?,?)`
                 db.query(insertPonto,[
                     matricula,
                     name,
@@ -98,7 +116,7 @@ const insertRegistro = (dados, body)=>{
             }
 
             if(action == "saida" && data == 0){
-                let insertPonto = `insert into control_point.control_register_ponto (matricula, nome, action) values (?,?,?)`
+                let insertPonto = `INSERT INTO control_point.control_register_ponto (matricula, nome, action) VALUES (?,?,?)`
                 db.query(insertPonto, [
                     matricula,
                     name,

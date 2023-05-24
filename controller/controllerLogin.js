@@ -6,15 +6,21 @@ const createSession = async (data) => {
         try {
 
             const {
-                email,
+                login_matricula,
                 password
             } = data
+        
+            let query = "select `password`, lv_access, name,`active`, matricula from control_point.control_users where matricula = ?"
 
-            let query = "select `password`, lv_access, name,`active`, matricula from control_point.control_users where email = ?"
+            db.query(query, [login_matricula], (err, result) => {
+                if(result.length == 0){
+                    reject({
+                        success: false,
+                        msg: "MATRICULA NÃO ENCONTRADA"
+                    })
+                }else{
 
-            db.query(query, [email], (err, result) => {
-
-                compare(password, result[0].password)
+                    compare(password, result[0].password)
                     .then(response => response)
                     .then(descryptPassword => {
                         
@@ -46,6 +52,7 @@ const createSession = async (data) => {
                             })
                         }
                     })
+                }
             })
         } catch (err) {
             reject({
@@ -60,7 +67,7 @@ const loginauthetication = async (req, res) => {
     try {
         let result = await createSession(req.body)
         if (result.success) {
-            req.session.email = req.body.email
+            req.session.login_matricula = req.body.login_matricula
             req.session.name = result.name
             req.session.lv_access = result.lv_access
             req.session.active = result.active
