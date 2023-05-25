@@ -30,23 +30,3 @@ form.addEventListener('submit', (e) => {
 })
 
 
-const empresas = ()=>{
-    fetch('/empresas',{
-        method: "GET",
-        headers: {
-            "Content-Type" : "application/json"
-        }
-    })
-    .then(response=>response.json())
-    .then(result=>{
-        let data_empresas = ""
-        for(i in result.data){
-            data_empresas += `
-            <option value="${result.data[i].empresas}">${result.data[i].empresas}</option>`
-        }
-        input_empresa.innerHTML = data_empresas
-    })
-}
-
-
-empresas()
