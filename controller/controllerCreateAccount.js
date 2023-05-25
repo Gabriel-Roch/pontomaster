@@ -107,15 +107,13 @@ const createAccountDatabase = (data) => {
                 telefone
             } = data
 
-            let query = "INSERT INTO control_point.control_users (email, `name`, `password`, matricula, telefone, empresa) VALUES (?,?,?,?,?)";
+            let query = "INSERT INTO control_point.control_users (email, `name`, `password`, matricula) VALUES (?,?,?,?)";
             
             db.query(query, [
                 email,
                 nome,
                 senhacrypto,
-                matricula,
-                telefone,
-                empresa
+                matricula
             ], (err) => {
                 if (!err) {
                     resolve({
