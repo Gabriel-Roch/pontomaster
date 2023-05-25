@@ -19,6 +19,7 @@ const system = require('./routes/routeSystem')
 const registroPonto = require('./routes/RouteRegistro')
 const routeAjustePonto = require('./routes/routeAjustePonto')
 const routeReport = require('./routes/routeReports')
+const routeAlterarSenha =  require('./routes/routeAlterarSenha')
 // ----------------------------------USE ROUTES-----------------------------------------
 app.use(index)
 app.use(login)
@@ -26,6 +27,7 @@ app.use(system)
 app.use(registroPonto)
 app.use(routeAjustePonto)
 app.use(routeReport)
+app.use(routeAlterarSenha)
 // ---------------------------------LISTEN SERVER---------------------------------------
 
 app.use(function(req, res, next) {

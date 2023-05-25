@@ -1,0 +1,38 @@
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modal_alterar_senha" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+           Alteração de senha
+          </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form id="form_alterar_password">
+            <div>
+              <input type="password" name="current_password" class="form-control" value="" placeholder="Senha atual" required>
+            </div>
+            <div>
+              <input type="password" name="new_password" class="form-control mt-4" value="" placeholder="Nova senha" required>
+            </div>
+            <div>
+              <input type="password" name="confirm_password" class="form-control mt-3" value="" placeholder="Confirme a senha" required>
+            </div>
+            <!-- hidden inputs -->
+            <input type="text" name="alterar_senha_matricula" value="<%= matricula %>" class="d-none">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="submit" class="btn btn-primary">Alterar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/public/javascript/configuracao/alterarSenha.js"></script>

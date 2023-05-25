@@ -73,7 +73,7 @@
                         <p id="matricula_entrada"></p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                         <button onclick="registrar('<%= name %>', '<%= matricula %>' , 'entrada')" type="submit"
                             class="btn btn-primary">Registrar</button>
                     </div>
@@ -106,7 +106,6 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Registro Saida</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="d-flex justify-content-center">
@@ -117,7 +116,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                         <button onclick="registrar('<%= name %>', '<%= matricula %>' , 'saida')" type="submit"
                             class="btn btn-primary">Registrar</button>
                     </div>
@@ -185,7 +184,6 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                        <button id="modal_tabela_historico" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_tabela_historico">Voltar</button>
                         <button type="submit" class="btn btn-primary">Enviar</button>
                         </form>
                     </div>
@@ -203,7 +201,8 @@
             <script src="../public/javascript/index.js"></script>
             <script src="../public/javascript/ajustePonto.js"></script>
             <%- include('parts/report.ejs') -%>
-
+            <%- include('parts/alterarSenha.ejs') -%>
+            <%- include('parts/infoConta.ejs') -%>
 
 </body>
 

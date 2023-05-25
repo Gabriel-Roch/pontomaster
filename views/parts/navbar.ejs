@@ -31,13 +31,18 @@
             <ul class="dropdown-menu dropdown-menu-dark">
               <li><a onclick="getCategoria()" type="button" data-bs-toggle="modal" data-bs-target="#modal_report"
                   class="dropdown-item" href="#">Reportar um problema</a></li>
-              <li><a class="dropdown-item" href="#">Alterar senha</a></li>
-              <li><a class="dropdown-item" href="#">Verificar informações da conta</a></li>
+                  
+              <li><a class="dropdown-item" type="button"
+                data-bs-toggle="modal" data-bs-target="#modal_alterar_senha"
+                >Alterar senha</a></li>
+              <li><a class="dropdown-item" href="#"
+                data-bs-toggle="modal" data-bs-target="#modal_info_conta"
+                >Verificar informações da conta</a></li>
             </ul>
           </li>
 
           
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Recursos
             </a>
@@ -45,10 +50,10 @@
               <li><a class="dropdown-item" href="#">Historico</a></li>
               <li><a class="dropdown-item" href="#">Relatorio de Ponto</a></li>
             </ul>
-          </li>
+          </li> -->
           
 
-          <% if (lv_access==3) { %>
+          <!-- <% if (lv_access==3) { %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
@@ -60,7 +65,7 @@
                 <li><a class="dropdown-item" href="#">Verificar informações da conta</a></li>
               </ul>
             </li>
-            <% } %>
+            <% } %> -->
 
               <% if (lv_access==3) { %>
                 <li class="nav-item dropdown">
@@ -70,9 +75,9 @@
                   </a>
                   <ul class="dropdown-menu dropdown-menu-dark">
                     <li><a class="dropdown-item" href="/users">Usuarios</a></li>
-                    <li><a class="dropdown-item" href="#">Metricas</a></li>
+                    <!-- <li><a class="dropdown-item" href="#">Metricas</a></li>
                     <li><a class="dropdown-item" href="#">Gerenciamento de repositorios</a></li>
-                    <li><a class="dropdown-item" href="#">Report</a></li>
+                    <li><a class="dropdown-item" href="#">Report</a></li> -->
                   </ul>
                 </li>
                 <% } %>

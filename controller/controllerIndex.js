@@ -4,6 +4,7 @@ const index = (req, res)=>{
         name : req.session.name,
         lv_access : req.session.lv_access,
         matricula : req.session.matricula,
+        dt_criacao: req.session.dt,
         title: "HOME"
     });
 }

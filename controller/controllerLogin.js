@@ -9,49 +9,51 @@ const createSession = async (data) => {
                 login_matricula,
                 password
             } = data
-        
-            let query = "select `password`, lv_access, name,`active`, matricula from control_point.control_users where matricula = ?"
+
+            let query = "select `password`, lv_access, name,`active`, email, matricula, DATE_FORMAT(dt_insert, '%d-%m-%y %H:%i') as dt from control_point.control_users where matricula = ?"
 
             db.query(query, [login_matricula], (err, result) => {
-                if(result.length == 0){
+                if (result.length == 0) {
                     reject({
                         success: false,
                         msg: "MATRICULA NÃO ENCONTRADA"
                     })
-                }else{
+                } else {
 
                     compare(password, result[0].password)
-                    .then(response => response)
-                    .then(descryptPassword => {
-                        
-                        if (!err) {
-                            if (result[0] == null) {
-                                reject({
-                                    success: false,
-                                    msg: "EMAIL NÃO ENCONTRADO"
-                                })
-                            } else if (descryptPassword == true && result[0].active == "enabled") {
-                                resolve({
-                                    success: true,
-                                    msg: "LOGIN EFETUADO COM SUCESSO",
-                                    name: result[0].name,
-                                    lv_access: result[0].lv_access,
-                                    active: result[0].active,
-                                    matricula: result[0].matricula
-                                })
+                        .then(response => response)
+                        .then(descryptPassword => {
+
+                            if (!err) {
+                                if (result[0] == null) {
+                                    reject({
+                                        success: false,
+                                        msg: "EMAIL NÃO ENCONTRADO"
+                                    })
+                                } else if (descryptPassword == true && result[0].active == "enabled") {
+                                    resolve({
+                                        success: true,
+                                        msg: "LOGIN EFETUADO COM SUCESSO",
+                                        name: result[0].name,
+                                        lv_access: result[0].lv_access,
+                                        active: result[0].active,
+                                        matricula: result[0].matricula,
+                                        dt_criacao: result[0].dt,
+                                        email: result[0].email
+                                    })
+                                } else {
+                                    reject({
+                                        success: false,
+                                        msg: "CREDENCIAIS INVALIDAS OU USUARIO NÃO AUTORIZADO"
+                                    })
+                                }
                             } else {
                                 reject({
                                     success: false,
-                                    msg: "CREDENCIAIS INVALIDAS OU USUARIO NÃO AUTORIZADO"
+                                    msg: "ERRR: createSession" + err + "DATABASE"
                                 })
                             }
-                        } else {
-                            reject({
-                                success: false,
-                                msg: "ERRR: createSession" + err + "DATABASE"
-                            })
-                        }
-                    })
+                        })
                 }
             })
         } catch (err) {
@@ -72,6 +74,8 @@ const loginauthetication = async (req, res) => {
             req.session.lv_access = result.lv_access
             req.session.active = result.active
             req.session.matricula = result.matricula
+            req.session.email = result.email
+            req.session.dt = result.dt_criacao
             res.json(result)
         }
     } catch (err) {
